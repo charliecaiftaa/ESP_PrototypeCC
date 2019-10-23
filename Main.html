@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ESP Technical Preparation</title>
+    <style>
+
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+
+        html {
+            height:100%;
+        }
+
+        .wrapper {
+            min-height: 100%;
+            width: 100%;
+            position: relative;
+            text-align: center;
+        }
+
+        body {
+            height: 100%;
+            /*background: #ddd;*/
+        }
+
+        .navigationDesktop {
+            /*background: black;*/
+        }
+
+        nav {
+            height: 40px;
+            width: 560px;
+            display: block;
+            margin: 0 auto;
+            text-align: center;
+            text-transform: capitalize;
+        }
+
+        nav a {
+            display: block;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 13pt;
+            /*color: #112233;*/
+        }
+
+        nav a:hover {
+            background: #223433;
+            color: #F0F1F5;
+        }
+
+        nav ul {
+            list-style: none;
+        }
+
+        nav ul li {
+            float: left;
+            width: 140px;
+            height: 40px;
+            line-height: 40px;
+            /*background: #FC575E;*/
+        }
+
+        nav ul ul li {
+            position: relative;
+            display: none;
+        }
+
+        nav ul ul ul {
+            display: none;
+        }
+
+        nav ul li:hover ul li {
+            display: block;
+            animation: navmenu 500ms forwards;
+        }
+
+        @keyframes navmenu {
+            0% {
+                opacity: 0;
+                top: 25px;
+            }
+            100% {
+                opacity: 1;
+                top: 0;
+            }
+        }
+
+        nav ul ul li:hover ul {
+            display: block;
+            position: absolute;
+            width: 140px;
+            left: 140px;
+            top: 0;
+        }
+
+        nav ul li ul li#everyone a {
+            font-size: 16px;
+        }
+
+        nav u li ul li#everyone a:hover {
+            background: #223433;
+            color: #F0F1F5;
+        }
+
+        a {
+            color: black;
+        }
+
+
+        p a {
+            color: blueviolet;
+        }
+
+        #everyone {
+            font-family: sans-serif;
+        }
+    </style>
+</head>
+<body>
+
+<div class="wrapper">
+    <header>
+        <h2>Technical Perparation</h2>
+    </header>
+    <div class="navigationDesktop">
+        <nav>
+            <ul>
+                <li><a href="#">Buildings</a>
+                    <ul>
+                        <li>Building A</li>
+                        <li>Building B</li>
+                        <li>Building C</li>
+                    </ul>
+                </li>
+                <li><a href="#">Items</a>
+                    <ul>
+                        <li>Item 1</li>
+                        <li>Item 2</li>
+                        <li>Item 3</li>
+                        <li>Item 4</li>
+                    </ul>
+                </li>
+                <li><a href="#">Projects</a>
+                    <ul>
+                        <li>Project 1</li>
+                        <li id="everyone"><a href="#">Project 2</a>
+                            <ul>
+                                <li>Project 2.1</li>
+                                <li>Project 2.2</li>
+                                <li>Project 2.3</li>
+                                <li>Project 2.4</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li><a href="#">About</a></li>
+            </ul>
+        </nav>
+    </div>
+
+</body>
+</html>

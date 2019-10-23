@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+
+
+<head>
+    <!--NOTE: Most Web WorldWind home use jquery, Bootstrap and requirejs but those technologies are NOT-->
+    <!--required by Web WorldWind. See SimplestExample.html for an example of using Web WorldWind without them.-->
+    <meta charset="utf-8"/>
+    <title>CitySmart - WorldWise v2</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="../css/menu.css"/>
+    <script src="jquery-3.3.1.min.js" type="text/javascript"></script>
+    <script src="build/WorldWind-built.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script data-main="Home.js" src="requirejs-2.3.6.min.js"></script>
+
+    <!-- Modal -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+<!--    <script src="Main.js"></script>-->
+    <style>
+        body {font-family: Arial, Helvetica, sans-serif;}
+
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+
+        html {
+            height:100%;
+        }
+
+        .wrapper {
+            min-height: 100%;
+            width: 100%;
+            position: relative;
+            text-align: center;
+        }
+
+        body {
+            height: 100%;
+            /*background: #ddd;*/
+        }
+
+        nav {
+            height: 40px;
+            width: 560px;
+            display: block;
+            margin: 0 auto;
+            text-align: center;
+            text-transform: capitalize;
+        }
+
+        nav a {
+            display: block;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 13pt;
+            /*color: #112233;*/
+        }
+
+        nav a:hover {
+            background: #223433;
+            color: #F0F1F5;
+        }
+
+        nav ul {
+            list-style: none;
+        }
+
+        nav ul li {
+            float: left;
+            width: 140px;
+            height: 40px;
+            line-height: 40px;
+            /*background: #FC575E;*/
+        }
+
+        nav ul ul li {
+            position: relative;
+            display: none;
+        }
+
+        nav ul ul ul {
+            display: none;
+        }
+
+        /*nav ul li:hover ul li {*/
+            /*display: block;*/
+            /*animation: navmenu 500ms forwards;*/
+        /*}*/
+
+        @keyframes navmenu {
+            0% {
+                opacity: 0;
+                top: 25px;
+            }
+            100% {
+                opacity: 1;
+                top: 0;
+            }
+        }
+
+        nav ul ul li:hover ul {
+            display: block;
+            position: absolute;
+            width: 140px;
+            left: 140px;
+            top: 0;
+        }
+
+        nav ul li ul li#project2 a {
+        }
+
+        nav u li ul li#everyone a:hover {
+            background: #223433;
+            color: #F0F1F5;
+        }
+
+        a {
+            color: black;
+        }
+
+
+        p a {
+            color: blueviolet;
+        }
+
+
+        .dropbtn {
+            background-color: rgb(46,74,110);
+            color: white;
+            padding: 16px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .dropbtn:hover {
+            background-color: #888888;
+        }
+
+        .dropbtn:focus {
+            background-color: #2196F3;
+            outline-width: 0;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f1f1f1;
+            min-width: 160px;
+            overflow: auto;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            height: auto;
+            width: 200px;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown a:hover {background-color: #ddd;}
+
+        /*.show {display: block;}*/
+
+        .button {
+            width: 40px;
+            height: 40px;
+            padding: 10px;
+        }
+
+    </style>
+</head>
+
+<script>
+
+
+
+    function toggle(source) {
+        let checkboxes = document.getElementsByName('Placemark');
+        // let checkedValue = null;
+        for (let i = 0, n = checkboxes.length; i < n; i++) {
+            checkboxes[i].checked = source.checked;
+            // if (checkboxes[i].checked) {
+            //     checkedValue = checkboxes[i].value;
+            //     break;
+            // }
+
+            //get the value of the check box with the check status
+
+
+        }
+    }
+
+
+
+
+    function myFunction() {
+        document.getElementById("myDropdown").classList.toggle("show");
+    }
+</script>
+
+<body>
+<!-- Dropdown-->
+<!--    <div id = "myModal" class = "modal">-->
+<!--        <div class = "modal-content">-->
+<!--            &lt;!&ndash; Popup Box Header &ndash;&gt;-->
+<!--            <div class = "modalHeader">-->
+<!--                <p id = "modalHeader">-->
+<!--                    <br>-->
+<!--                </p>-->
+<!--                <p><span class = "close">&times;</span></p>-->
+<!--            </div>-->
+
+<!--            &lt;!&ndash; Popup Box Body &ndash;&gt;-->
+<!--            <p class = "modal-body" id = "modalBody">-->
+
+<!--            </p>-->
+
+<!--            &lt;!&ndash; Popup Box Footer &ndash;&gt;-->
+<!--            <div class = "modal-footer">-->
+<!--                <p></p>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+    <div class = "container">
+
+
+        <div>
+            <img src="../images/TL_WB_Banner.jpg" alt="Placeholder Image" align="center"/>
+        </div>
+
+        <ul class="tab" style="z-index: 999; position: fixed; left: 0; height: 40px; width: 100%; background: rgba(46,74,110,1); overflow: visible">
+            <li>
+                <div class="dropdown">
+                    <button onclick="myFunction()" class="dropbtn button"><input type="image" alt="globe" src="../images/globe3.png" width="20px" height="auto"></button>
+                    <div id="myDropdown" class="dropdown-content">
+                        <a href="#">Stations</a><br><br><br><br><br><br><br><br><br><br>
+                        <a href="#">About</a><br><br><br><br><br><br><br><br><br><br>
+                        <a href="#">Contact</a>
+                        <br><br><br><br><br><br><br><br><br><br><br><br>
+                        <a>Meet the Team</a><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+                    </div>
+                </div>
+            </li>
+        </ul>
+
+
+
+
+
+
+
+<!--        <div>-->
+<!--            <div>-->
+<!--                <br><br><br><br><br><br><br><br><br><br><br><br><br><br>-->
+
+<!--                <table style="width:100%">-->
+
+<!--                    <tr>-->
+<!--                        <th>Stations</th>-->
+<!--                        <th><input type="submit" value="Show On Globe" class="plckJSON"></th>-->
+<!--                        <th>Live Comparison</th>-->
+<!--                        <th>Historical Information</th>-->
+<!--                        <th></th>-->
+<!--                        <th></th>-->
+<!--                    </tr>-->
+<!--                    <tr>-->
+<!--                        <td></td>-->
+<!--                        <td><input type="checkbox" onclick="toggle(this)"> Select All<br></td>-->
+<!--                    </tr>-->
+<!--                    <tr>-->
+<!--                        <td>Station 1</td>-->
+<!--                        <td><input class="switch right switch_right" type="checkbox" value="Station 1" name="Placemark"></td>-->
+<!--                        <td><input type="checkbox"></td>-->
+<!--                        <td><input type="checkbox" class=""></td>-->
+<!--                        <td><button class="btn btn-info btn-lg" data-toggle="modal" data-target="#Modal" value="Station 1">I</button></td>-->
+<!--                        <td><button class="btn btn-info btn-lg" data-toggle="modal" data-target="#Modal" value="Station 1">H</button></td>-->
+<!--                    </tr>-->
+<!--                    <tr>-->
+<!--                        <td>Station 2</td>-->
+<!--                        <td><input class="switch right switch_right" type="checkbox" value="Station 2" name="Placemark"></td>-->
+<!--                        <td><input type="checkbox"></td>-->
+<!--                        <td><input type="checkbox" class=""></td>-->
+<!--                        <td><button class="btn btn-info btn-lg" data-toggle="modal" data-target="#Modal" value="Station 2">I</button></td>-->
+<!--                        <td><button class="btn btn-info btn-lg" data-toggle="modal" data-target="#Modal" value="Station 2">H</button></td>-->
+<!--                    </tr>-->
+<!--                    <tr>-->
+<!--                        <td></td>-->
+<!--                        <td></td>-->
+<!--                        <td></td>-->
+<!--                        <td><input type="submit"></td>-->
+<!--                    </tr>-->
+
+<!--                </table>-->
+
+<!--            </div>-->
+
+            <div class="col-sm-9" id="globe" style="margin-left:250px; margin-top: 100px">
+                <canvas id="canvasOne" width="1000" height="1000" style="width:100%; height:auto">
+                    Your browser does not support HTML5 Canvas.
+                </canvas>
+
+            </div>
+
+<!--        </div>-->
+<!--        &lt;!&ndash; Modal &ndash;&gt;-->
+<!--        <div class="modal fade" id="Modal" role="dialog">-->
+<!--            <div class="modal-dialog">-->
+
+<!--                &lt;!&ndash; Modal content&ndash;&gt;-->
+<!--                <div class="modal-content" id="modalContent">-->
+<!--                    <div class="modal-header">-->
+<!--                        <button type="button" class="close" data-dismiss="modal">&times;</button>-->
+<!--                            &lt;!&ndash; <h4 class="modal-title"></h4> &ndash;&gt;-->
+<!--                    </div>-->
+<!--                    <div class="modal-body" id="modalBody">-->
+
+<!--                    </div>-->
+<!--                    <div class="modal-img">-->
+
+<!--                    </div>-->
+<!--                    <div class="modal-footer">-->
+<!--                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>-->
+<!--                    </div>-->
+<!--                </div>-->
+
+<!--            </div>-->
+<!--        </div>-->
+    </div>
+
+</body>
+
+
+</html>
